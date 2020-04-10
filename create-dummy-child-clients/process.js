@@ -1,7 +1,6 @@
-require('dotenv').config()
+import {faker} from "../init";
 import {json} from './payload'
-import {postRequest} from './helper'
-const faker = require('faker')
+import {postRequest} from '../helper'
 
 
 let userName = process.env.USER_NAME;
@@ -29,8 +28,7 @@ function init(count, credential) {
             .replace(/{last_name}/g, faker.name.lastName())
             .replace(/{mother_first_name}/g, faker.name.firstName())
             .replace(/{mother_last_name}/g, faker.name.lastName())
-            .replace(/{date created}/g, new Date().toISOString());
-
+            .replace(/{date_created}/g, new Date().toISOString());
 
         newJson.events = json.events
             .replace(/{mother baseEntityId}/g, motherBaseEntityId)
@@ -42,8 +40,8 @@ function init(count, credential) {
             .replace(/{locationId}/g, process.env.LOCATION_ID)
             .replace(/{providerId}/g, process.env.PROVIDER_ID)
             .replace(/{lastInteractedWith}/g, new Date().getTime())
-            .replace(/{date created}/g, new Date().toISOString());
+            .replace(/{date_created}/g, new Date().toISOString());
 
-        postRequest(newJson, Buffer.from(credential).toString('base64'),  process.env.URL) //Comment if you dont have api to send the payload
+        postRequest(newJson, Buffer.from(credential).toString('base64'), process.env.URL) //Comment if you dont have api to send the payload
     }
 }
