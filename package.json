@@ -1,0 +1,21 @@
+{
+  "name": "fake-event-client",
+  "version": "1.0.0",
+  "description": "creates fake event client data then send its to an api endpoint",
+  "main": "create-dummy-child-clients/process.js'",
+  "scripts": {
+    "start": "node -r esm create-dummy-child-clients/process.js"
+  },
+  "author": "bennsimonotieno@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
+    "faker": "^4.1.0",
+    "node-fetch": "^2.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bennsimon/fake-event-client.git"
+  }
+}
